@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banknote Scanner</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <nav id="nav">
+    <button data-screen="scanner">Scan</button>
+    <button data-screen="history">History</button>
+    <button data-screen="catalog">Catalog</button>
+    <button data-screen="valuation">Valuation</button>
+  </nav>
+
+  <section id="scanner" class="screen active">
+    <video id="camera" autoplay playsinline></video>
+    <div class="controls">
+      <button id="capture-front">Capture Front</button>
+      <button id="capture-back">Capture Back</button>
+      <button id="analyze" disabled>Analyze</button>
+    </div>
+    <div class="previews">
+      <img id="preview-front" class="preview hidden" alt="Front preview" />
+      <img id="preview-back" class="preview hidden" alt="Back preview" />
+    </div>
+    <canvas id="snapshot" class="hidden"></canvas>
+  </section>
+
+  <section id="results" class="screen">
+    <h2>Scan Results</h2>
+    <div id="result-data"></div>
+    <button id="save-scan">Save to History</button>
+  </section>
+
+  <section id="history" class="screen">
+    <h2>Scan History</h2>
+    <ul id="history-list"></ul>
+  </section>
+
+  <section id="catalog" class="screen">
+    <h2>Catalog</h2>
+    <ul id="catalog-list"></ul>
+  </section>
+
+  <section id="valuation" class="screen">
+    <h2>Valuation</h2>
+    <p>Total Estimated Value: $<span id="total-value">0</span></p>
+  </section>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
